@@ -1,0 +1,130 @@
+Hotel Booking Dataset Variables Documentation:
+
+1. hotel -> Does one type of hotel lead to more cancellations?
+Unique values: City hotel vs Resort Hotel
+
+2. is_canceled -> outcome variable
+
+3. lead_time -> how many days in advance did customer leave a reservation for hotel booking
+
+4. arrival_date_year -> What year did the customer arrive?
+Unique values : 2015, 2016, 2017
+
+5. arrival_date_month ->  What month of the year did the customer arrive?
+Unique values: Months of the year (12)
+
+6. arrival_date_week_number -> What week of the year did the customer arrive (Consider dropping because we have month and year already)
+
+7. arrival_date_of_a_month -> What day of the month did the customer arrive (Consider dropping because we have month and year already)
+
+8. stays_in_weekend_nights -> how many total weekend nights did the customer stay during their trip
+
+9. stays_in_week_nights -> how many total week nights did the customer stay during their trip
+
+for features 8 and 9, I was thinking of feature engineer stays_in_week_nights & stay_in_weekend_nights (like in the Taxi Cancellations HW) where it was just a binary feature of whether they stayed during the weekend or not)
+
+10. adults -> how many adults stayed during trip (some traveled in large groups like 50 so maybe we can bin this variable like anything adult stay greater than 4 is its own category) 
+
+11. children -> how many children stayed during trip? (some reason this is a floating value not an integer)
+
+12. babies -> how many babies stayed during trip?
+
+for features 11 and 12 consider combining them into one group since they are relatively the same
+
+13. meal -> what type of meal package did the customer(s) have?
+Link to what these values mean: https://dmcquote.com/blog/post/hotel-meal-plans-guide-bb-hb-fb-ai
+Unique values: BB (Bread & Breakfast), HB (Half Board), FB(Full Board), Self-catering (SC), Undefined
+
+14. country -> which country the hotel is located in?
+Notable Unique values:  PRT -> Portugal
+			GBR -> Great Britain
+			FRA -> France
+			ESP -> Spain
+			DEU -> Germany
+			and many more
+
+15. market_segment -> how a customer booked their hotel trip
+Unique values: Online TA (Travel Agency) -> Using a online source like Booking.com to book a hotel stay
+	       Offline TA/TO (Tour Option) -> A middleman resells rooms to travel agency
+	       Groups -> Weddings, conferences, or tour groups
+	       Direct -> Guests booking directly on your hotel website or via phone. 
+	       Corporate -> Business travelers booking via company contracts. 
+               Complementary -> Free rooms given to VIPs, prize winners, or staff
+	       Aviation -> Contracted rooms for airline flight crews
+	       Undefined
+
+16. distribution_channel -> how the booking reached the hotel's system
+Unique values: TA/TO -> See Unique values for feature 15
+	       Direct -> See Unique values for feature 15
+	       Corporate -> See Unique values for feature 15
+	       GDS (Global Distribution System) -> electronic network (like Sabre or Amadeus) used by travel 							   agents, specifically for business and premium travel
+	       Undefined
+
+17. is_repeated_guest -> has the customer stayed at the hotel before?
+Unique values: 0 -> not repeat
+	       1 -> repeat
+
+18. previous_cancellations -> has the customer cancelled before?
+Unique values: There are a lot of unique values some ranging very high like in the 20s or 30s on how many times they cancelled. AI suggested that maybe they are travel agent bots "who repeatedly book blocks of rooms to lock in a price and then dump back into the system if they can't resell them. (Makes sense, I was considering dropping rows that had these values because we want our data on customer not travel bots!)
+
+19. previous_bookings_not_canceled -> how many times the customer has not canceled their hotel booking
+
+20. reserved_room_type -> what room type did the customer request (is coded with letters) (I let AI interpret this, which can be dangerous but without context it is difficult to argue that there is a more accurate alternative)
+Unique values: A -> Standard Room 
+	       D -> Superior/Deluxe Room
+	       E,F,G,B,C,H -> Specialized room layouts, such as Twin rooms, Family rooms, or Junior suites.
+	       P & L ->  Highly exclusive luxury suites, presidential villas, or potentially highly specific 				 accessible rooms 
+Consider binning these categories
+
+21. assigned_room_type -> the room the customer actually got
+Unique values: Same as features 20 but with a few more
+	       I and K ->  rooms that the customer cannot book on their end but the hotel has it
+
+22. booking_changes -> how many times the booking was altered from original booking 
+			
+23. deposit_type -> what type of deposit did the customer pay with
+Unique value: No Deposit -> The guest reserved the room with a credit card on file, but no money was charged 				    upfront
+	      Non refund -> The guest paid for the room immediately upon booking. If they cancel, the hotel keeps 
+			    100% of the money
+	      Refundable -> The guest paid a deposit upfront, but they can get it back if they cancel before a 				    specific, structured "cut-off date"
+
+24. agent -> displays the ID number of the travel agency that made the reservation
+	     highly represented IDs are global Online Travel Agenceis like Booking.com, Expedia, etc.
+	  
+   
+feature 24 we can impute missing data with -1 because the missing data means the guest booked directly with the hotel
+
+25. company -> columns contains ID of the company that made the booking  
+
+feature 25 has over 90% missing data so we can create a binary variable that shows whether the account is a company account
+
+26. days_in_waiting_list -> number of days a customer is put on a waiting list
+
+feature 26 bin unique values into two where 0 represents they didnt wait and 1 represent they did wait(change name of variable too)
+
+27. customer_type -> what type of customer booked a reservation
+Unique values: Transient -> independent travelers who are not part of a larger commercial group or corporate 				    contract
+	       Transient-Party -> family/group travel
+	       Contract -> Bookings tied to an ongoing, formal allotment contract. This is frequently used for
+			   airline flight crews.
+	       Group -> A single bulk booking made for a large gathering, such as a convention, sports team, or
+			massive tour group
+
+28. adr (average daily rate) -> how much a customer spends a day on their hotel
+	
+feature 28, adr values should be binned such as Budget <$50, Standard ($50-$120), Premium > $120
+
+29. required_car_parking_spaces -> tracks the exact number of parking spots a guest explicitly requested when 					   making their reservation
+
+feature 29, we can bin binary values where they either reserved parking spaces or not
+
+30. total_of_special_requests -> tracks the number of extra demands a guest added to their booking
+
+31. reservation_status -> shows the status of the reservation(because we already have our outcome variable we can
+			  should drop this column and it is a data leak on prediction)
+32. reservation_status_date -> data leaks here too so we drop this column
+
+
+ 
+
+	       
