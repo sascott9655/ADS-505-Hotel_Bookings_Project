@@ -34,7 +34,7 @@ The goal of this project is to predict which hotel bookings are likely to be can
 - pandas, NumPy, Matplotlib, seaborn, scikit-learn
 
 ## Project Description
-The dataset contains 119,390 bookings with 32 variables from a City Hotel and a Resort Hotel in Portugal (2015–2017). We explored which booking characteristics are linked to cancellations, then built logistic regression, Naive Bayes and neural network models for each hotel. Models were compared on a validation set at 90% precision, and the neural network performed best.
+The dataset contains 119,390 bookings with 32 variables from a City Hotel and a Resort Hotel (2015–2017). We explored which booking characteristics are linked to cancellations, then built logistic regression, Naive Bayes and neural network models for each hotel. Models were compared on a validation set at 90% precision, and the neural network performed best.
 
 The main challenges were duplicate rows from group bookings (kept, with a group-based split so copies never landed in both training and test data), columns that leaked the outcome (removed), and Resort cancellations being much harder to predict confidently than City cancellations.
 
