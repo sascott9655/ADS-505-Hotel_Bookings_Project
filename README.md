@@ -20,7 +20,7 @@ The goal of this project is to predict which hotel bookings are likely to be can
 
 ## Contributors
 - **Guillermo Alejandro Valencia:** logistic regression, shared data split and results framework, merging notebooks
-- **Brandon [Last Name]:** Naive Bayes, group-based split for duplicate bookings
+- **Brandon Rodriguez-Andrade:** Naive Bayes, group-based split for duplicate bookings
 - **Samuel Scott:** neural network, model comparison, final test evaluation
 
 ## Methods Used
