@@ -39,4 +39,8 @@ The dataset contains 119,390 bookings with 32 variables from a City Hotel and a 
 The main challenges were duplicate rows from group bookings (kept, with a group-based split so copies never landed in both training and test data), columns that leaked the outcome (removed), and Resort cancellations being much harder to predict confidently than City cancellations.
 
 ## Data Source
-Antonio, N., de Almeida, A., & Nunes, L. (2019). Hotel booking demand datasets. *Data in Brief, 22*, 41–49. https://doi.org/10.1016/j.dib.2018.11.126
+## Data Source
+Elgebaly, A. (2022). *hotel_bookings.csv* [Data set]. Kaggle. https://www.kaggle.com/datasets/ahmedsafwatgb20/hotel-bookingscsv
+
+This is a re-upload of the original hotel booking demand data published by Antonio, N., de Almeida, A., & Nunes, L. (2019). Hotel booking demand datasets. *Data in Brief, 22*, 41–49. https://doi.org/10.1016/j.dib.2018.11.126
+
